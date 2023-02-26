@@ -29,6 +29,7 @@ public class Player_Movement : MonoBehaviour
         transform = GetComponent<Transform>();
         rigiB.AddForce(new Vector2(-1, 0), ForceMode2D.Impulse);
         _jumpwait = JumpWaittime;
+        Time.timeScale = 1f;
     }
 
     // Update is called once per frame
@@ -41,13 +42,14 @@ public class Player_Movement : MonoBehaviour
         PlayerPos = transform.position;
 
         _jumpwait -= Time.deltaTime;
+        
+        Debug.Log("Time = "+ Time.deltaTime);
     }
 
     public void Jump()
     {
         rigiB.AddForce(new Vector2(0f, jumpFoce), ForceMode2D.Impulse);
-        Instantiate(JumpEffectEffect, transform.position, transform.rotation, null);
-        Destroy(JumpEffectEffect, 0.5f);
+        Instantiate(JumpEffectEffect, transform.position, transform.rotation, null); 
     }
 
     public void VerticalDirection(float inputY)

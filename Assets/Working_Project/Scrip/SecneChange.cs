@@ -30,19 +30,24 @@ public class SecneChange : MonoBehaviour
 
     public void OnStartGame(float delayTime)
     {
-        StartCoroutine(Delay_To_Menu(delayTime));
+        Debug.Log("OnStartGame");
+        SceneManager.LoadScene("start", LoadSceneMode.Single);
+        //StartCoroutine(Delay_To_Menu(delayTime));
     }
 
 
     public void OnPlayGame(float delayTime)
     {
-        StartCoroutine(Delay_To_Play(delayTime));
-
+        Debug.Log("OnPlayGame");
+        //StartCoroutine(Delay_To_Play(delayTime));
+        SceneManager.LoadScene("Gameplay", LoadSceneMode.Single);
     }
 
     public void OnGameover(float delayTime)
     {
-        StartCoroutine(Delay_To_Over(delayTime));
+        Debug.Log("OnGameover");
+        //StartCoroutine(Delay_To_Over(delayTime));
+        SceneManager.LoadScene("gameover", LoadSceneMode.Single);
     }
 
     public void OnExitEvent(float delayTime)
@@ -52,19 +57,19 @@ public class SecneChange : MonoBehaviour
 
     IEnumerator Delay_To_Menu(float delayTime)
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(delayTime);
         SceneManager.LoadScene("start");
     }
 
     IEnumerator Delay_To_Play(float delayTime)
     {
-        yield return new WaitForSeconds(1);
-        SceneManager.LoadScene("SampleScene");
+        yield return new WaitForSeconds(delayTime);
+        SceneManager.LoadScene("Gameplay");
     }
 
     IEnumerator Delay_To_Over(float delayTime)
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(delayTime);
         SceneManager.LoadScene("gameover");
     }
 

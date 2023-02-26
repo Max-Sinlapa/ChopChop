@@ -53,6 +53,7 @@ public class Health : MonoBehaviour
     void Start()
     {
         SetRespawnPoint(transform.position);
+        currentHealth = defaultHealth;
     }
 
     /// <summary>

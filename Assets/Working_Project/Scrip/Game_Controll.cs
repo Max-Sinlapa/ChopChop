@@ -19,7 +19,6 @@ public class Game_Controll : MonoBehaviour
         if (playerhealth.currentHealth == 0)
         {
             EndGame();
-
         }
 
         /*
@@ -60,6 +59,5 @@ public class Game_Controll : MonoBehaviour
     void EndGame()
     {
         SceneManager.LoadScene("gameover");
-            
     }
 }
