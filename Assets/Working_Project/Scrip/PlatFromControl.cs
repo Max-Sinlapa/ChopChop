@@ -6,45 +6,47 @@ public class PlatFromControl : MonoBehaviour
 {
     private PlatformEffector2D effector;
     public float waitTime;
+    private float _effectorRestor;
 
     void Start()
     {
         effector = GetComponent<PlatformEffector2D>();
+        _effectorRestor = waitTime;
     }
 
     void Update()
     {
 
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            PressToDrop();
-        }
-
-        if (waitTime <= 0)
+        if (_effectorRestor <= 0)
         {
             effector.rotationalOffset = 0.0f;
+            
+            if (Input.GetKey(KeyCode.DownArrow))
+            {
+                PressToDrop();
+            }
         }
-        waitTime -= Time.deltaTime;
+        _effectorRestor -= Time.deltaTime;
 
 
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            effector.rotationalOffset = 0.0f;
+            PressToUp();
         }
 
     }
 
     public void PressToDrop()
     {
-        waitTime = 0.2f;
-        effector.rotationalOffset = 180f;
-
+        if (_effectorRestor <= 0)
+        {
+            _effectorRestor = waitTime;
+            effector.rotationalOffset = 180f;
+        }
     }
 
     public void PressToUp()
     {
-
         effector.rotationalOffset = 0f;
-
     }
 }

@@ -328,7 +328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a9aa2a43a925444db516ceac0125272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitTime: 0.1
+  waitTime: 0.001
 --- !u!251 &221101453
 PlatformEffector2D:
   m_ObjectHideFlags: 0
@@ -893,7 +893,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   p_touchIdentifier: {fileID: 853514532}
-  _Camera: {fileID: 0}
+  _Camera: {fileID: 519420031}
   DurationSwipe: 0.5
   RequiredArc: 90
   _player: {fileID: 1766408185}
@@ -901,8 +901,8 @@ MonoBehaviour:
   _platFroms2: {fileID: 221101452}
   _platFroms3: {fileID: 963801854}
   JumpEffectEffect: {fileID: 6616230607855913306, guid: aa8b5e1479bef834387cc0cc6dd50236, type: 3}
-  waitTime_jump: 0
-  waitTime_Down: 0
+  waitTime_jump: 0.1
+  waitTime_Down: 0.1
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1230,7 +1230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a9aa2a43a925444db516ceac0125272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitTime: 0.1
+  waitTime: 0.001
 --- !u!251 &730810332
 PlatformEffector2D:
   m_ObjectHideFlags: 0
@@ -1698,7 +1698,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a9aa2a43a925444db516ceac0125272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitTime: 0.1
+  waitTime: 0.001
 --- !u!251 &963801855
 PlatformEffector2D:
   m_ObjectHideFlags: 0
@@ -2139,12 +2139,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6276872400318129472, guid: a71742ab49baf44438f2573389781db9, type: 3}
       propertyPath: move_speed
-      value: 0.15
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6276872400318129472, guid: a71742ab49baf44438f2573389781db9, type: 3}
+      propertyPath: JumpWaittime
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6276872400318129472, guid: a71742ab49baf44438f2573389781db9, type: 3}
       propertyPath: JumpEffectEffect
       value: 
       objectReference: {fileID: 6616230607855913306, guid: aa8b5e1479bef834387cc0cc6dd50236, type: 3}
+    - target: {fileID: 6276872400318129472, guid: a71742ab49baf44438f2573389781db9, type: 3}
+      propertyPath: PlatformList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6276872400318129472, guid: a71742ab49baf44438f2573389781db9, type: 3}
+      propertyPath: PlatformList.Array.data[0]
+      value: 
+      objectReference: {fileID: 730810331}
+    - target: {fileID: 6276872400318129472, guid: a71742ab49baf44438f2573389781db9, type: 3}
+      propertyPath: PlatformList.Array.data[1]
+      value: 
+      objectReference: {fileID: 221101452}
+    - target: {fileID: 6276872400318129472, guid: a71742ab49baf44438f2573389781db9, type: 3}
+      propertyPath: PlatformList.Array.data[2]
+      value: 
+      objectReference: {fileID: 963801854}
     - target: {fileID: 6276872400318129474, guid: a71742ab49baf44438f2573389781db9, type: 3}
       propertyPath: m_Name
       value: Player

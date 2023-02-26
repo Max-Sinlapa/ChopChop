@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Working_Project/Scenes/start.unity
     guid: f5e2f810ab5cf4c44a468eab327a2f38
   - enabled: 1
-    path: Assets/Working_Project/Scenes/SampleScene.unity
+    path: Assets/Working_Project/Scenes/Gameplay.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Working_Project/Scenes/gameover.unity

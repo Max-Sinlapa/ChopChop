@@ -14,6 +14,8 @@ public class Swipe_Controll : SwipeDetector
     public float waitTime_jump;
     public float waitTime_Down;
 
+    private float _waitToJump;
+    private float _waitToDown;
 
     protected override void SwipedDirection(float angle, Movement currentDirection)
     {

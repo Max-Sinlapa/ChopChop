@@ -12,33 +12,60 @@ public class Player_Movement : MonoBehaviour
     private float move_Vertical;
 
     private bool isJumping;
-    private bool check_Roatat;
+    public float JumpWaittime;
+    private float _jumpwait;
 
     private GameObject player;
     public GameObject JumpEffectEffect;
 
     Vector3 PlayerPos;
+    
+    public List<PlatFromControl> PlatformList;
 
     // Start is called before the first frame update
     void Start()
     {
         rigiB = GetComponent<Rigidbody2D>();
         transform = GetComponent<Transform>();
-        rigiB.AddForce(new Vector2(-10, 0), ForceMode2D.Impulse);
+        rigiB.AddForce(new Vector2(-1, 0), ForceMode2D.Impulse);
+        _jumpwait = JumpWaittime;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float inputX = Input.GetAxis("Horizontal");
-        WalkDirection(inputX);
+        float input_X = Input.GetAxis("Horizontal");
+        float input_Y = Input.GetAxis("Vertical");
+        VerticalDirection(input_Y);
+        WalkDirection(input_X);
         PlayerPos = transform.position;
+
+        _jumpwait -= Time.deltaTime;
     }
 
     public void Jump()
     {
         rigiB.AddForce(new Vector2(0f, jumpFoce), ForceMode2D.Impulse);
         Instantiate(JumpEffectEffect, transform.position, transform.rotation, null);
+        Destroy(JumpEffectEffect, 0.5f);
+    }
+
+    public void VerticalDirection(float inputY)
+    {
+        //Debug.Log("" + _jumpwait);
+        if (inputY > 0f && _jumpwait < 0f)
+        {
+            Jump();
+            _jumpwait = JumpWaittime;
+        }
+
+        if (inputY < 0f)
+        {
+            foreach (var _platFromControl in PlatformList)
+            {
+                _platFromControl.PressToDrop();
+            }
+        }
     }
 
     public void WalkDirection(float inputX)
@@ -52,7 +79,8 @@ public class Player_Movement : MonoBehaviour
             SwipeDirection_To_Left();
         }
 
-        rigiB.AddForce(new Vector2(move_speed, 0f), ForceMode2D.Impulse);
+        this.transform.position += new Vector3(move_speed * Time.deltaTime, 0f, 0f);
+        //rigiB.AddForce(new Vector2(move_speed * Time.deltaTime, 0f), ForceMode2D.Impulse);
 
         if (PlayerPos.x > 2.0 || PlayerPos.x < -2.0)
         {

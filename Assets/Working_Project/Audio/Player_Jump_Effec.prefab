@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4509955284729944688}
   - component: {fileID: -6044220984456382712}
+  - component: {fileID: -8353765369776064940}
   m_Layer: 0
   m_Name: Player_Jump_Effec
   m_TagString: Untagged
@@ -127,3 +128,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-8353765369776064940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6616230607855913306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b58ca2f55b8d54e44921b14b727bf610, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 1
+  destroyChildrenOnDeath: 1
